@@ -1,0 +1,207 @@
+POST http://localhost:8080/user?userName=Kirill&password=123
+
+
+### POST Student
+POST localhost:8080/student
+content-type:application/json
+
+{
+  "fio": "Borisov Boris Borisovich",
+  "age": 2,
+  "num": 10,
+  "salary": 2000
+}
+
+### POST Student
+POST localhost:8080/student
+content-type:application/json
+
+{
+  "fio": "Ivanov Ivan Ivanovich",
+  "age": 22,
+  "num": 2,
+  "salary": 3000
+}
+
+### POST Student
+POST localhost:8080/student
+content-type:application/json
+
+{
+  "fio": "Stepanov Stepan Stepanovich",
+  "age": 21,
+  "num": 3,
+  "salary": 2500
+}
+
+### GET all Student
+GET localhost:8080/student
+
+### GET Student by id
+GET localhost:8080/student/1
+Authorization: Basic Kirill 123
+
+### GET Student by id
+GET localhost:8080/student/1
+
+### GET Student by id
+GET localhost:8080/student/1
+Authorization: Basic Kirill 124
+
+### GET all Students by fio
+GET localhost:8080/student/search?fio=Borisov Boris Borisovich
+Authorization: Basic Kirill 123
+
+
+### GET Student by incorrect id
+GET localhost:8080/student/100
+Authorization: Basic Kirill 123
+
+
+### DELETE Student by id
+DELETE localhost:8080/student/3
+Authorization: Basic Kirill 123
+
+### PUT Student
+PUT localhost:8080/student/
+Authorization: Basic Kirill 123
+content-type:application/json
+
+{
+  "id": 1,
+  "fio": "Coca Cola Borisovich",
+  "age": 23,
+  "num": 1,
+  "salary": 2000
+}
+
+### PUT Student
+PUT localhost:8080/student
+Authorization: Basic Kirill 123
+content-type:application/json
+
+{
+  "id": 2,
+  "fio": "Petrov Petr Petrovich",
+  "age": 23,
+  "num": 1,
+  "salary": 2000
+}
+
+### PUT Student
+PUT localhost:8080/student/
+Authorization: Basic Kirill 123
+content-type:application/json
+
+{
+  "id": 1,
+  "fio": "Sokolov Stepan Stepanovich",
+  "age": 22,
+  "num": 222,
+  "salary": 3300
+}
+
+### POST Auto
+POST localhost:8080/auto/1
+content-type:application/json
+
+{
+  "brand": "Mersedes-Benz",
+  "power": 600,
+  "year": 2023
+}
+
+### POST Auto
+POST localhost:8080/auto/2
+content-type:application/json
+
+{
+  "brand": "BMW",
+  "power": 654,
+  "year": 2022
+}
+
+### POST Auto
+POST localhost:8080/auto/3
+content-type:application/json
+
+{
+  "brand": "AUDI",
+  "power": 555,
+  "year": 2022
+}
+
+### GET all Autos
+GET localhost:8080/auto
+
+### GET Auto by id
+GET localhost:8080/auto/1
+Authorization: Basic Kirill 123
+
+### GET all Autos by brand
+GET localhost:8080/auto/search?id=1
+Authorization: Basic Kirill 123
+
+### GET Auto by incorrect id
+GET localhost:8080/auto/100
+Authorization: Basic Kirill 123
+
+### DELETE Auto by id
+DELETE localhost:8080/auto/2
+Authorization: Basic Kirill 123
+
+### PUT Auto
+PUT localhost:8080/auto/
+Authorization: Basic Kirill 123
+content-type:application/json
+
+{
+  "id": 1,
+  "brand": "PORSCHE",
+  "power": 600,
+  "year": 2023
+}
+
+### PUT Auto id
+PUT localhost:8080/auto/
+Authorization: Basic Kirill 123
+content-type:application/json
+
+{
+  "id": 2,
+  "brand": "ROLLS-ROYS",
+  "power": 600,
+  "year": 2023
+}
+
+### PUT Auto with incorrect student's id
+PUT localhost:8080/auto/
+Authorization: Basic Kirill 123
+content-type:application/json
+
+{
+  "id": 3,
+  "brand": "BENTLY",
+  "power": 600,
+  "year": 2023
+}
+
+### PUT Auto with incorect id
+PUT localhost:8080/auto/
+Authorization: Basic Kirill 123
+content-type:application/json
+
+{
+  "id": 100,
+  "brand": "BENTLY",
+  "power": 555,
+  "year": 2022,
+  "student": {
+    "id": 3,
+    "fio": "Stepanov Stepan Stepanovich",
+    "age": 21,
+    "num": 3,
+    "salary": 2500
+  }
+}
+

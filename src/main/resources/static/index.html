@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Autos and students</title>
+    <script src="scripts/jQuery.min.js"></script>
+    <script src="scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="scripts/paging.js"></script>
+    <script type="text/javascript" src="scripts/index.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+    <script src="scripts/jquery.cookie.js"></script>
+
+    <link href="styles/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+</head>
+<body>
+<caption> Students</caption>
+<table class="table table-bordered table-hover horizontal-align" id="table_students">
+    <!--style="display: inline-block">-->
+    <thead class="table-black">
+    <tr>
+        <th>FIO</th>
+        <th>Age</th>
+        <th>Num</th>
+        <th>Salary</th>
+        <th>Update</th>
+        <th>Delete</th>
+        <th>Information</th>
+    </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+
+<!-- Button trigger modal add-->
+<div>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalAddStudent">
+        Add new student
+    </button>
+</div>
+
+<!-- Modal Add New Student-->
+<div class="modal fade" id="modalAddStudent" tabindex="-1" aria-labelledby="addNewStudentModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addNewStudentModalLabel">Add new student</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="add_student_fio" class="form-label">FIO</label>
+                        <input type="text" class="form-control" id="add_student_fio" aria-describedby="Name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="add_student_age" class="form-label">AGE</label>
+                        <input type="text" class="form-control" id="add_student_age" aria-describedby="Name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="add_student_num" class="form-label">Num</label>
+                        <input type="text" class="form-control" id="add_student_num" aria-describedby="Name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="add_student_salary" class="form-label">Salary</label>
+                        <input type="text" class="form-control" id="add_student_salary" aria-describedby="Name">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="add_student_button">Send</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Change Student-->
+<div class="modal fade" id="modalChangeStudent" tabindex="-1" aria-labelledby="changeStudentModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="changeStudentModalLabel">Change student</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <input type="number" id="change_student_id" hidden>
+                    <div class="mb-3">
+                        <label for="change_student_fio" class="form-label">FIO</label>
+                        <input type="text" class="form-control" id="change_student_fio" aria-describedby="Fio">
+                    </div>
+                    <div class="mb-3">
+                        <label for="change_student_age" class="form-label">age</label>
+                        <input type="text" class="form-control" id="change_student_age" aria-describedby="age">
+                    </div>
+                    <div class="mb-3">
+                        <label for="change_student_num" class="form-label">num</label>
+                        <input type="text" class="form-control" id="change_student_num" aria-describedby="num">
+                    </div>
+                    <div class="mb-3">
+                        <label for="change_student_salary" class="form-label">salary</label>
+                        <input type="text" class="form-control" id="change_student_salary" aria-describedby="salary">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="change_student_button">Send</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<caption> Auto</caption>
+<table class="table table-bordered table-hover horizontal-align" id="table_autos">
+    <thead class="table table-black">
+    <tr>
+        <th>Brand</th>
+        <th>Power</th>
+        <th>Year</th>
+        <th>Update</th>
+        <th>Delete</th>
+    </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+<!-- Button trigger modal add-->
+<div>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalAddAuto">
+        Add new auto
+    </button>
+</div>
+<div id="pagination1" style="text-align: left;"></div>
+<!-- Modal Add New Auto-->
+<div class="modal fade" id="modalAddAuto" tabindex="-1" aria-labelledby="addNewAutoModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addNewAutoModalLabel">Add new auto</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                        <label for="add_auto_brand" class="form-label">Brand</label>
+                        <input type="text" class="form-control" id="add_auto_brand" aria-describedby="Brand">
+                    </div>
+                    <div class="mb-3">
+                        <label for="add_auto_power" class="form-label">Power</label>
+                        <input type="text" class="form-control" id="add_auto_power" aria-describedby="Power">
+                    </div>
+                    <div class="mb-3">
+                        <label for="add_auto_year" class="form-label">Year</label>
+                        <input type="text" class="form-control" id="add_auto_year" aria-describedby="Year">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="add_auto_button">Send</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Change Auto-->
+<div class="modal fade" id="modalChangeAuto" tabindex="-1" aria-labelledby="changeAutoModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="changeAutoModalLabel">Change auto</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <input type="number" id="change_auto_id" hidden>
+                    <div class="mb-3">
+                        <label for="change_auto_brand" class="form-label">Brand</label>
+                        <input type="text" class="form-control" id="change_auto_brand" aria-describedby="Brand">
+                    </div>
+                    <div class="mb-3">
+                        <label for="change_auto_power" class="form-label">Power</label>
+                        <input type="text" class="form-control" id="change_auto_power" aria-describedby="Power">
+                    </div>
+                    <div class="mb-3">
+                        <label for="change_auto_year" class="form-label">Year</label>
+                        <input type="text" class="form-control" id="change_auto_year" aria-describedby="Year">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="change_auto_button">Send</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    showStudents();
+
+</script>
+</body>
+</html>
